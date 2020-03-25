@@ -17,22 +17,19 @@ const TaskBox = styled.View`
     maxHeight: 100px;
     margin-left: 15%;
     margin-top: 5%;
-    flex: 1;
 `;
 const FirstTaskBox = styled(TaskBox)`
     margin-top: 10%;
 `;
-const TaskHeader = styled.View`
-    background-color: white;
-    padding: 5px;
-    border-bottom-width: 1px;
-`;
 const TaskContent = styled.Text`
     padding: 5px;
 `;
+const TaskHeader = styled(TaskContent)`
+    background-color: white;
+    border-bottom-width: 1px;
+`;
 const TaskScrolledContent = styled(ScrollContainer)`
     background-color: #039be5;
-    height: 30px;
 `;
 const TaskTitle = styled.Text`
     font-weight: bold;
@@ -49,6 +46,8 @@ const ListTab: FC = () => {
     return (
         <StaticPageView>
             <ScrollContainer>
+
+
                 <FirstTaskBox>
                     <TaskHeader>
                         <TaskTitle>Tytuł zadania</TaskTitle>
@@ -57,22 +56,19 @@ const ListTab: FC = () => {
                         <TaskContent>Treść zadania</TaskContent>
                     </TaskScrolledContent>
                 </FirstTaskBox>
+
                 <TaskBox>
                     <TaskHeader>
 
                     </TaskHeader>
-                    <TaskContent>
+                    <TaskScrolledContent>
+                        <TaskContent>
 
-                    </TaskContent>
+                        </TaskContent>
+                    </TaskScrolledContent>
                 </TaskBox>
-                <TaskBox>
-                    <TaskHeader>
 
-                    </TaskHeader>
-                    <TaskContent>
 
-                    </TaskContent>
-                </TaskBox>
             </ScrollContainer>
             <AddTaskImg
                 source={require('../../assets/plus.png')}
