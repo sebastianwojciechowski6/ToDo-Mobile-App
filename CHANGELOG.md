@@ -13,3 +13,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
     - Initial app config
+    
+### [1.1.0] - 2020-03-03
+
+### Changes
+
+    - Main.tsx sourcefile
+    - StatusBar in Main (Main.tsx) configured to work properly
+    
+### Added
+
+    - Description, Home, List screens folders
+    - index.tsx for Description, Home, List screens
+    - Component BottomNavigation.tsx
+    - Import NavigationContainer into Main.tsx
+    - Import BottomTabs into Main.tsx
+    
+### [1.1.1] - 2020-03-18
+
+### Changes
+
+    -
+    
+### Added
+
+### [1.2.1]

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Text, View, Image, ScrollView} from 'react-native';
 import styled from 'styled-components/native';
-import Layout from '../../constans/Layout';
 import {FC} from 'react';
 
 const AvatarImg = styled.Image`
@@ -15,7 +14,7 @@ const PanoramicImg = styled.Image`
     width: 100%;
     height: 40%;
 `;
-const ScrollContainer = styled.ScrollView`
+export const ScrollContainer = styled.ScrollView`
     flex: 1;
     width: 100%;
 `;
