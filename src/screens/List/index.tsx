@@ -1,9 +1,11 @@
 import * as React from 'react';
-import {Text, View} from 'react-native';
 import styled from 'styled-components/native';
-import {FC} from 'react';
+import {FC, useState} from 'react';
 import {ScrollContainer} from "../Home";
 import Layout from "../../constans/Layout";
+import Form from "../../components/Form";
+import ToDoList from "../../components/ToDoList";
+import {View} from "react-native";
 
 const StaticPageView = styled.View`
     margin-top: ${`${Layout.statusBar}px`}
@@ -14,7 +16,6 @@ const StaticPageView = styled.View`
 const TaskBox = styled.View`
     border: 2px solid black;
     width: 70%;
-    maxHeight: 100px;
     margin-left: 15%;
     margin-top: 5%;
 `;
@@ -26,10 +27,10 @@ const TaskContent = styled.Text`
 `;
 const TaskHeader = styled(TaskContent)`
     background-color: white;
-    border-bottom-width: 1px;
 `;
-const TaskScrolledContent = styled(ScrollContainer)`
+const TaskViewContent = styled.View`
     background-color: #039be5;
+    min-height: 20px;
 `;
 const TaskTitle = styled.Text`
     font-weight: bold;
@@ -43,36 +44,57 @@ const AddTaskImg = styled.Image`
     border-radius: 20px;
 `;
 const ListTab: FC = () => {
+    const [formView, setFormView] = useState<boolean>(false);
+
     return (
         <StaticPageView>
             <ScrollContainer>
-
-
                 <FirstTaskBox>
                     <TaskHeader>
                         <TaskTitle>Tytuł zadania</TaskTitle>
                     </TaskHeader>
-                    <TaskScrolledContent>
-                        <TaskContent>Treść zadania</TaskContent>
-                    </TaskScrolledContent>
+                    <TaskViewContent>
+                        <ScrollContainer>
+                            <TaskContent>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.
+                            </TaskContent>
+                        </ScrollContainer>
+                    </TaskViewContent>
                 </FirstTaskBox>
 
                 <TaskBox>
                     <TaskHeader>
-
                     </TaskHeader>
-                    <TaskScrolledContent>
-                        <TaskContent>
-
-                        </TaskContent>
-                    </TaskScrolledContent>
+                    <TaskViewContent>
+                        <ScrollContainer>
+                            <TaskContent>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.
+                            </TaskContent>
+                        </ScrollContainer>
+                    </TaskViewContent>
                 </TaskBox>
-
-
             </ScrollContainer>
+
             <AddTaskImg
                 source={require('../../assets/plus.png')}
             />
+            <View>
+                {formView ? (
+                    <Form/>
+                ) : (
+                    <ToDoList/>
+                )}
+            </View>
         </StaticPageView>
 
     );
