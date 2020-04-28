@@ -1,1 +1,2 @@
 export const SET_NEW_ELEMENT = 'SET_NEW_ELEMENT';
+export const REMOVE_NEW_ELEMENT = 'REMOVE_NEW_ELEMENT';

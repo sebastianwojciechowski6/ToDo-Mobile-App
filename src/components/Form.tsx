@@ -1,7 +1,11 @@
 import React, {FC, useState} from 'react';
 import styled from 'styled-components';
 import {Wrapper} from "./ToDoList";
-import {TextInput} from "react-native";
+import {Button} from "react-native";
+import {useDispatch} from 'react-redux';
+import {setNewElemToDoList} from "../actions/toDoListActions";
+import {ISingleElementList} from "../entities/toDoSingleEl";
+
 
 const CustomTextInput = styled.TextInput`
     border: 1px solid black;
@@ -9,11 +13,33 @@ const CustomTextInput = styled.TextInput`
     color: black;
     width: 100%;
 `;
-const Form: FC = props => {
+
+type SetNewElemToDoList = ReturnType<typeof setNewElemToDoList>;
+const Form: FC<{ switchView(formView: boolean) }> = props => {
+    const dispatch = useDispatch();
+    const [nameInput, setNameInput] = useState<string>('');
+    const [descriptionInput, setDescriptionInput] = useState<string>('');
+
+    const nameValueChange = (txt) => {
+        setNameInput(txt.nativeEvent.text);
+    };
+    const descriptionValueChange = (txt) => {
+        setDescriptionInput(txt.nativeEvent.text);
+    };
+    const saveData = () => {
+        dispatch<SetNewElemToDoList>(setNewElemToDoList({
+            name: nameInput,
+            description: descriptionInput,
+            id: new Date().getTime()
+        } as ISingleElementList));
+        props.switchView(false);
+    };
+
     return (
         <Wrapper>
-            <CustomTextInput value={} onChange={} placeholder='Name'/>
-            <CustomTextInput value={} onChange={} placeholder='Description'/>
+            <CustomTextInput value={nameInput} onChange={nameValueChange} placeholder='Name'/>
+            <CustomTextInput value={descriptionInput} onChange={descriptionValueChange} placeholder='Description'/>
+            <Button title='Save' onPress={saveData}/>
         </Wrapper>
     )
 };

@@ -46,7 +46,7 @@ const AddTaskImg = styled.Image`
 const ListTab: FC = () => {
     const [formView, setFormView] = useState<boolean>(false);
 
-    return (
+    return (                                                                //TODO: Zapytac o połączenie ToDoList.tsx z index.tsx
         <StaticPageView>
             <ScrollContainer>
                 <FirstTaskBox>
@@ -88,11 +88,11 @@ const ListTab: FC = () => {
             <AddTaskImg
                 source={require('../../assets/plus.png')}
             />
-            <View>
+            <View>                                                                          //TODO: Zapytać o podpięcie formularza do przycisku z obrazka powyżej
                 {formView ? (
-                    <Form/>
+                    <Form switchView = {setFormView}/>
                 ) : (
-                    <ToDoList/>
+                    <ToDoList switchView = {setFormView}/>
                 )}
             </View>
         </StaticPageView>
