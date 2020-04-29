@@ -8,7 +8,7 @@ import {ISingleElementList} from "../entities/toDoSingleEl";
 
 
 const CustomTextInput = styled.TextInput`
-    border: 1px solid black;
+    border-bottom-width: 1px;
     padding: 10px;
     color: black;
     width: 100%;
@@ -41,7 +41,7 @@ const Form: FC<{ switchView(formView: boolean) }> = props => {
             <CustomTextInput value={descriptionInput} onChange={descriptionValueChange} placeholder='Description'/>
             <Button title='Save' onPress={saveData}/>
         </Wrapper>
-    )
+    );
 };
 
 export default Form;

@@ -1,27 +1,45 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import styled from 'styled-components';
-import {Text, Button} from "react-native";
+import {Button, Image} from "react-native";
 import {useSelector, useDispatch} from 'react-redux';
 import {IState} from "../reducers";
 import {IToDoListReducer} from "../reducers/toDoListReducer";
 import {ISingleElementList} from "../entities/toDoSingleEl";
 import {removeElemToDolist} from "../actions/toDoListActions";
+import Layout from "../constans/Layout";
+import {ScrollContainer} from "../screens/Home";
 
 export const Wrapper = styled.View`
-    margin: 80px 20px 0 20px;
+    margin: 0 20px 0 20px;
 `;
-const SingleElList = styled.View`
+export const StaticPageView = styled.View`
+    margin-top: ${`${Layout.statusBar}px`}
+    background-color: yellow;
+    height: 100%;
+    width: 100%;
+`;
+const TaskBox = styled.View`
     border: 1px solid black;
-    margin: 0 0 20px 0;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+`;
+const TaskContent = styled.Text`
+    padding: 10px;
+    color: black;
+    width: 100%;
+`;
+const TaskViewContent = styled.View`
+    min-height: 100px;
+`;
+const TaskTitle = styled.Text`
+    font-weight: bold;
 `;
 
 type RemoveElemToDoList = ReturnType<typeof removeElemToDolist>;
 const ToDoList: FC<{ switchView(formView: boolean) }> = props => {
     const dispatch = useDispatch();
     const toDoListState = useSelector<IState, IToDoListReducer>(state => state.toDoList);
-    const goToForm = () => {
-        props.switchView(true);
-    };
     const removeData = (id: number) => {
         dispatch<RemoveElemToDoList>(removeElemToDolist(id));
     };
@@ -29,13 +47,22 @@ const ToDoList: FC<{ switchView(formView: boolean) }> = props => {
     return (
         <Wrapper>
             {toDoListState.toDoList.map((elem: ISingleElementList, index: number) =>
-                <SingleElList key={index}>
-                    <Text>{elem.name}</Text>
-                    <Text>{elem.description}</Text>
-                    <Button title='Remove' onPress={removeData(elem.id)}/> //TODO: Zapytać o problem
-                </SingleElList>
+                <TaskBox key={index}>
+                    <TaskContent>
+                        <TaskTitle>
+                            {elem.name}
+                        </TaskTitle>
+                    </TaskContent>
+                    <TaskViewContent>
+                        <ScrollContainer>
+                            <TaskContent>
+                                {elem.description}
+                            </TaskContent>
+                            <Button title='Done' onPress={() => removeData(elem.id)}/>
+                        </ScrollContainer>
+                    </TaskViewContent>
+                </TaskBox>
             )}
-            <Button title='Add new' onPress={goToForm}/>
         </Wrapper>
     )
 };
