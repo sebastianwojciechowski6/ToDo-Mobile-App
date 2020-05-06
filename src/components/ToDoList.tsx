@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
-import {Button, Image} from "react-native";
+import {TouchableWithoutFeedback, View} from "react-native";
 import {useSelector, useDispatch} from 'react-redux';
 import {IState} from "../reducers";
 import {IToDoListReducer} from "../reducers/toDoListReducer";
@@ -8,9 +8,11 @@ import {ISingleElementList} from "../entities/toDoSingleEl";
 import {removeElemToDolist} from "../actions/toDoListActions";
 import Layout from "../constans/Layout";
 import {ScrollContainer} from "../screens/Home";
+import {BlackButton} from "./Form";
 
-export const Wrapper = styled.View`
+export const Wrapper = styled.ScrollView`
     margin: 0 20px 0 20px;
+    padding-top: 5%;
 `;
 export const StaticPageView = styled.View`
     margin-top: ${`${Layout.statusBar}px`}
@@ -28,9 +30,13 @@ const TaskContent = styled.Text`
     padding: 10px;
     color: black;
     width: 100%;
+    
 `;
 const TaskViewContent = styled.View`
     min-height: 100px;
+    border-top-width: 1px;
+    border-color: black;
+    max-height: 200px;
 `;
 const TaskTitle = styled.Text`
     font-weight: bold;
@@ -58,7 +64,11 @@ const ToDoList: FC<{ switchView(formView: boolean) }> = props => {
                             <TaskContent>
                                 {elem.description}
                             </TaskContent>
-                            <Button title='Done' onPress={() => removeData(elem.id)}/>
+                            <TouchableWithoutFeedback onPress={() => removeData(elem.id)}>
+                                <View>
+                                    <BlackButton>Done</BlackButton>
+                                </View>
+                            </TouchableWithoutFeedback>
                         </ScrollContainer>
                     </TaskViewContent>
                 </TaskBox>

@@ -17,12 +17,18 @@ const HeaderImg = styled.Image`
     width: 100%;
     height: 100px;
 `;
+const ImgView = styled.View`
+    border-bottom-width: 1px;
+    border-color: black;
+`;
 const ListTab: FC = () => {
     const [formView, setFormView] = useState<boolean>(false);
 
     return (
         <StaticPageView>
-            <HeaderImg source={require('../../assets/todolist.png')}/>
+            <ImgView>
+                <HeaderImg source={require('../../assets/todolist.png')}/>
+            </ImgView>
             <TouchableWithoutFeedback
                 onPress={() => setFormView(true)}>
                 <AddTaskImg source={require('../../assets/plus.png')}/>
