@@ -12,7 +12,8 @@ import {BlackButton} from "./Form";
 
 const PageWrapper = styled.View`
     margin: 0 20px 0 20px;
-    
+    overflow: hidden;
+
 `;
 export const StaticPageView = styled.View`
     margin-top: ${`${Layout.statusBar}px`}
@@ -73,6 +74,7 @@ const ToDoList: FC<{ switchView(formView: boolean) }> = props => {
                     </TaskViewContent>
                 </TaskBox>
             )}
+
         </PageWrapper>
     )
 };

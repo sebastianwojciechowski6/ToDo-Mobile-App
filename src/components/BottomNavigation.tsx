@@ -10,7 +10,13 @@ const Tab = createBottomTabNavigator();
 
 const BottomTabs: FC = () => {
     return (
-        <Tab.Navigator>
+        <Tab.Navigator tabBarOptions={{
+            inactiveBackgroundColor: 'black',
+            inactiveTintColor: 'white',
+            activeBackgroundColor: 'black',
+            activeTintColor: 'yellow'
+
+        }}>
             <Tab.Screen name={'Home'} component={HomeTab} options={{
                 tabBarIcon: ({color, size}) => (
                     <MaterialCommunityIcons name="home"
@@ -31,5 +37,5 @@ const BottomTabs: FC = () => {
             }}/>
         </Tab.Navigator>
     );
-}
+};
  export default BottomTabs;
