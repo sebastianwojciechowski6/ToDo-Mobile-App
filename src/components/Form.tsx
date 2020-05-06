@@ -1,12 +1,13 @@
 import React, {FC, useState} from 'react';
 import styled from 'styled-components';
-import {Wrapper} from "./ToDoList";
-import {TouchableWithoutFeedback, View} from "react-native";
+import {TouchableWithoutFeedback, View, Text, TextInput} from "react-native";
 import {useDispatch} from 'react-redux';
 import {setNewElemToDoList} from "../actions/toDoListActions";
 import {ISingleElementList} from "../entities/toDoSingleEl";
 
-
+const FormWrapper = styled.View`
+    margin: 0 20px 0 20px;
+`;
 const CustomTextInput = styled.TextInput`
     border-bottom-width: 1px;
     padding: 10px;
@@ -44,7 +45,7 @@ const Form: FC<{ switchView(formView: boolean) }> = props => {
     };
 
     return (
-        <Wrapper>
+        <FormWrapper>
             <CustomTextInput value={nameInput} onChange={nameValueChange} placeholder='Name'/>
             <CustomTextInput value={descriptionInput} onChange={descriptionValueChange} placeholder='Description'/>
 
@@ -53,7 +54,7 @@ const Form: FC<{ switchView(formView: boolean) }> = props => {
                     <BlackButton>Save</BlackButton>
                 </View>
             </TouchableWithoutFeedback>
-        </Wrapper>
+        </FormWrapper>
     );
 };
 

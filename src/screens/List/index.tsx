@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import {FC, useState} from 'react';
 import Form from "../../components/Form";
 import ToDoList, {StaticPageView} from "../../components/ToDoList";
-import {Image, TouchableWithoutFeedback} from "react-native";
+import {View, Image, TouchableWithoutFeedback} from "react-native";
 
 const AddTaskImg = styled.Image`
     height: 40px;

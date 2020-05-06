@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
-import {TouchableWithoutFeedback, View} from "react-native";
+import {TouchableWithoutFeedback, View, Text} from "react-native";
 import {useSelector, useDispatch} from 'react-redux';
 import {IState} from "../reducers";
 import {IToDoListReducer} from "../reducers/toDoListReducer";
@@ -10,9 +10,9 @@ import Layout from "../constans/Layout";
 import {ScrollContainer} from "../screens/Home";
 import {BlackButton} from "./Form";
 
-export const Wrapper = styled.ScrollView`
+const PageWrapper = styled.View`
     margin: 0 20px 0 20px;
-    padding-top: 5%;
+    
 `;
 export const StaticPageView = styled.View`
     margin-top: ${`${Layout.statusBar}px`}
@@ -51,7 +51,7 @@ const ToDoList: FC<{ switchView(formView: boolean) }> = props => {
     };
 
     return (
-        <Wrapper>
+        <PageWrapper>
             {toDoListState.toDoList.map((elem: ISingleElementList, index: number) =>
                 <TaskBox key={index}>
                     <TaskContent>
@@ -73,7 +73,7 @@ const ToDoList: FC<{ switchView(formView: boolean) }> = props => {
                     </TaskViewContent>
                 </TaskBox>
             )}
-        </Wrapper>
+        </PageWrapper>
     )
 };
 
