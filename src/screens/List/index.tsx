@@ -10,7 +10,7 @@ const AddTaskImg = styled.Image`
     width: 40px;
     position: absolute;
     right: 20px;
-    top: 540px;
+    top: 25px;
     border-radius: 20px;
 `;
 const HeaderImg = styled.Image`

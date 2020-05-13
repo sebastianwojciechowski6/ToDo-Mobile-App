@@ -10,10 +10,10 @@ import Layout from "../constans/Layout";
 import {ScrollContainer} from "../screens/Home";
 import {BlackButton} from "./Form";
 
-const PageWrapper = styled.View`
+const PageWrapper = styled.ScrollView`
     margin: 0 20px 0 20px;
     overflow: hidden;
-
+    
 `;
 export const StaticPageView = styled.View`
     margin-top: ${`${Layout.statusBar}px`}
@@ -74,7 +74,6 @@ const ToDoList: FC<{ switchView(formView: boolean) }> = props => {
                     </TaskViewContent>
                 </TaskBox>
             )}
-
         </PageWrapper>
     )
 };
