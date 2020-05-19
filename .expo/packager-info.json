@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 1243,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "packagerPid": 1403,
+  "expoServerNgrokUrl": "https://4h-ia9.anonymous.wsei-react-native.exp.direct",
+  "packagerNgrokUrl": "https://packager.4h-ia9.anonymous.wsei-react-native.exp.direct",
+  "ngrokPid": 1420,
   "webpackServerPort": null
 }
