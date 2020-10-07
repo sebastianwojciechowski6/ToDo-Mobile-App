@@ -1,4 +1,4 @@
-# ToDo Mobile App
+# ToDo Mobile App - React Native
 
 ## **Folders Structure**
 
